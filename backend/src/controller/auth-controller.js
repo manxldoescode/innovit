@@ -58,6 +58,9 @@ const registerUser = async(req, res) => {
 const loginUser = async(req, res) => {
     try {
 
+        console.log(req.body);
+        
+
         const {username, password} = req.body;
 
         //checking whether the current user is already registered
@@ -70,6 +73,9 @@ const loginUser = async(req, res) => {
                 message : "Invalid Username or Password"
             })
         }
+
+        console.log(user.password);
+        
 
         //checking password
         const isPasswordMatch = await bcrypt.compare(password, user.password);

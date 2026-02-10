@@ -6,20 +6,22 @@ const authRoutes = require('./routes/auth-routes');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 //connect to database
 mongoose.connect(process.env.MONGODB_URI)
 .then(()=>console.log("mongodb is successfully connected"))
 .catch(e=>console.error("An Error has occured : ",e))
 
+app.use(express.json());
+
 app.use(cors({
-    origin: ['http://localhost:5500', 'http://127.0.0.1:5500', 'http://localhost:3000'], //frontend urls
+    origin: ['http://192.168.1.14:3000', 'http://localhost:3000'], //frontend urls
     credentials: true
 }));
 
 
-app.use(express.json());
+
 
 //check if the endpoint hits
 
