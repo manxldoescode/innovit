@@ -73,8 +73,6 @@ const loginUser = async(req, res) => {
                 message : "Invalid Username or Password"
             })
         }
-
-        console.log(user.password);
         
 
         //checking password
